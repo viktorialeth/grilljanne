@@ -6,7 +6,7 @@ export default function Om() {
       {/* Sida: H1 */}
         <section className="page-hero page-head">
           <div className="container">
-            <h1>Om oss</h1>
+            <h1>Om os</h1>
             <p>Vi utgår från Mölnlycke i Göteborg och erbjuder helhetslösningar för catering med fokus på grill.</p>
           </div>
         </section>
