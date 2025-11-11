@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
 export default function Header() {
@@ -8,7 +8,10 @@ export default function Header() {
   const lastY = useRef(0);
   const lastDir = useRef("up");
 
-  // show/hide on scroll
+  const navigate = useNavigate();          // <-- saknades
+  const location = useLocation();
+
+  // Visa/dölj nav vid scroll
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY || 0;
@@ -23,28 +26,54 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // stäng overlay när man byter route (enkelt: stäng på klick)
   const closeMenu = () => setMenuOpen(false);
   const toggleMenu = () => setMenuOpen(v => !v);
+
+  const scrollTopSmooth = () =>
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+  // Logga: gå hem och scrolla upp (om vi redan är på /, hoppa bara till toppen)
+  function handleLogoClick(e) {
+    e.preventDefault();
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(scrollTopSmooth, 0);
+    } else {
+      scrollTopSmooth();
+    }
+    closeMenu();
+  }
+
+  // Gemensam klickhanterare för nav-länkar (scrolla alltid upp)
+  const handleNavClick = (path) => (e) => {
+    e.preventDefault();
+    if (location.pathname !== path) {
+      navigate(path);
+      setTimeout(scrollTopSmooth, 0);
+    } else {
+      scrollTopSmooth();
+    }
+    closeMenu();
+  };
 
   return (
     <>
       <header className={`nav ${hidden ? "nav--hidden" : ""}`}>
         <div className="container nav-inner">
           <div className="logo">
-            <Link to="/">GRILL&nbsp;JANNE</Link>
+            <a href="/" onClick={handleLogoClick}>GRILL&nbsp;JANNE</a>
           </div>
 
           <nav className="nav-links">
-            {/* <NavLink to="/catering">Catering och event</NavLink> */}
-            <NavLink to="/aktuellt">Aktuellt</NavLink>
-            <NavLink to="/bilder">Bilder</NavLink>
-            <NavLink to="/Om">Om oss</NavLink>
+            <a href="/aktuellt" onClick={handleNavClick("/aktuellt")}>Aktuellt</a>
+            <a href="/bilder"   onClick={handleNavClick("/bilder")}>Bilder</a>
+            <a href="/Om"       onClick={handleNavClick("/Om")}>Om oss</a>
           </nav>
 
-          <Link className="btn btn-solid nav-cta" to="/kontakt">KONTAKTA OSS</Link>
+          <a className="btn btn-solid nav-cta" href="/kontakt" onClick={handleNavClick("/kontakt")}>
+            KONTAKTA OSS
+          </a>
 
-          {/* hamburger – syns bara <980px via CSS */}
           <button
             className={`nav-toggle ${menuOpen ? "is-open" : ""}`}
             aria-label="Öppna meny"
@@ -65,16 +94,15 @@ export default function Header() {
 
         <div className="mobile-menu-inner">
           <div className="mobile-links">
-            <NavLink to="/" onClick={closeMenu}>Hem</NavLink>
-            {/* <NavLink to="/catering" onClick={closeMenu}>Catering</NavLink> */}
-            <NavLink to="/bilder" onClick={closeMenu}>Bilder</NavLink>
-            <NavLink to="/aktuellt" onClick={closeMenu}>Aktuellt</NavLink>
-            <NavLink to="/kontakt" onClick={closeMenu}>Kontakt</NavLink>
+            <a href="/"         onClick={handleLogoClick}>Hem</a>
+            <a href="/bilder"   onClick={handleNavClick("/bilder")}>Bilder</a>
+            <a href="/aktuellt" onClick={handleNavClick("/aktuellt")}>Aktuellt</a>
+            <a href="/kontakt"  onClick={handleNavClick("/kontakt")}>Kontakt</a>
           </div>
-            <div>
-              <div className="foot-value"><a href="mailto:janne.staffas@gmail.com">janne.staffas@gmail.com</a></div>
-              <div className="foot-value"><a href="tel:0705747013">070-574 70 13</a></div>
-            </div>
+          <div>
+            <div className="foot-value"><a href="mailto:janne.staffas@gmail.com">janne.staffas@gmail.com</a></div>
+            <div className="foot-value"><a href="tel:0705747013">070-574 70 13</a></div>
+          </div>
         </div>
       </aside>
     </>

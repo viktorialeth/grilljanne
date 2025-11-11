@@ -1,5 +1,6 @@
 import { IMAGES } from "../data/images.js";
 import { POSTS } from "../data/posts.js";
+import ScrollToTopButton from "../components/ScrollToTopButton.jsx"; // eller utan .jsx
 
 const gallery = [
   IMAGES.grid1,
@@ -14,15 +15,12 @@ const gallery = [
 export default function Bilder() {
   return (
     <main className="bilder-page">
-      {/* Rubrik + introduktion */}
       <div className="bilder-head container">
         <h1>BILDER</h1>
         <p className="lede">
           Ta en titt i vårt galleri och se hur vi skapar stämning på plats!
         </p>
       </div>
-
-      {/* Fullbredds-galleri */}
       <div className="image-grid-full no-overlay">
         {gallery.map((src, i) => (
           <div
@@ -34,6 +32,7 @@ export default function Bilder() {
           </div>
         ))}
       </div>
+      <ScrollToTopButton />
     </main>
   );
 }

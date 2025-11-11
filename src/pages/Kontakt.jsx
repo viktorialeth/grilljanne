@@ -1,7 +1,7 @@
-// src/pages/Kontakt.jsx
 import { useState } from "react";
 import emailjs from "emailjs-com";
 import { IMAGES } from "../data/images";
+import ScrollToTopButton from "../components/ScrollToTopButton.jsx"; // eller utan .jsx
 
 export default function Kontakt() {
   const [form, setForm] = useState({
@@ -41,7 +41,15 @@ export default function Kontakt() {
       );
 
       setStatus("Tack! Ditt meddelande har skickats.");
-      setForm({ first:"", last:"", email:"", phone:"", guests:"", eventType:"", message:"" });
+      setForm({
+        first: "",
+        last: "",
+        email: "",
+        phone: "",
+        guests: "",
+        eventType: "",
+        message: "",
+      });
     } catch (error) {
       console.error(error);
       setStatus("Något gick fel, försök igen senare.");
@@ -96,13 +104,19 @@ export default function Kontakt() {
             <div className="row">
               <div className="field">
                 <label>Typ av event</label>
-                <input type="text" name="eventType" value={form.eventType} onChange={onChange} placeholder="T.ex. företagsevent, privat grillkväll…" />
+                <input
+                  type="text"
+                  name="eventType"
+                  value={form.eventType}
+                  onChange={onChange}
+                  placeholder="T.ex. företagsevent, privat grillkväll…"
+                />
               </div>
             </div>
 
             <div className="row">
               <div className="field">
-                <label>Önskad meny eller upplägg </label>
+                <label>Önskad meny eller upplägg</label>
                 <textarea
                   rows="5"
                   name="message"
@@ -112,7 +126,9 @@ export default function Kontakt() {
               </div>
             </div>
 
-            <button type="submit" className="btn btn-solid contact-send">SKICKA</button>
+            <button type="submit" className="btn btn-solid contact-send">
+              SKICKA
+            </button>
             {status && <p className="status-message">{status}</p>}
           </form>
         </div>
@@ -123,6 +139,9 @@ export default function Kontakt() {
           aria-label="Grill Janne på event"
         />
       </div>
+
+      {/* 👇 Lägg till knappen längst ned */}
+      <ScrollToTopButton />
     </main>
   );
 }
