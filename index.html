@@ -1,32 +1,70 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Notable&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-      rel="stylesheet"
-    />
-    <title>grilljanne</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
-
-<!DOCTYPE html>
 <html lang="sv">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Grill Janne</title>
+
+    <!-- SEO -->
+    <title>Grill Janne – Grillcatering & grillevent i Göteborg</title>
+    <meta
+      name="description"
+      content="Välkommen till Grill Janne – grill och catering i Göteborg. Vi erbjuder helhetslösningar för företagsevent, kundevent och privata fester med fokus på grill och BBQ."
+    />
+    <meta
+      name="keywords"
+      content="grillcatering Göteborg, grill event, BBQ catering, företagsevent, företagsfest, kundevent, grillfest, catering Göteborg"
+    />
+
+    <!-- Faviconer -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/web-app-manifest-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="mask-icon" href="/favicon.svg" color="#000000" />
+    <meta name="theme-color" content="#000000" />
+
+    <!-- Open Graph (för Facebook/Google förhandsvisning) -->
+    <meta property="og:title" content="Grill Janne – Grillcatering & grillevent i Göteborg" />
+    <meta
+      property="og:description"
+      content="Välkommen till Grill Janne! Vi erbjuder grill, catering, företagsevent, företagsfest & kundevent i Göteborg. Specialiserade på grill & BBQ!"
+    />
+    <meta property="og:image" content="https://grilljanne.com/web-app-manifest-512x512.png" />
+    <meta property="og:url" content="https://grilljanne.com" />
+    <meta property="og:type" content="website" />
+
+    <!-- Structured data (för Google Business / Sökresultat) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Caterer",
+        "name": "Grill Janne",
+        "url": "https://grilljanne.com",
+        "logo": "https://grilljanne.com/web-app-manifest-512x512.png",
+        "image": "https://grilljanne.com/web-app-manifest-512x512.png",
+        "description": "Välkommen till Grill Janne! Vi erbjuder grill, catering, företagsevent, företagsfest & kundevent i Göteborg. Specialiserade på grill & BBQ!",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Göteborg",
+          "addressCountry": "Sverige"
+        },
+        "servesCuisine": ["Grill", "BBQ", "Catering"]
+      }
+    </script>
+
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Notable&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="https://use.typekit.net/khs1eyt.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+
   </head>
   <body>
     <div id="root"></div>

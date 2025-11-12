@@ -9,8 +9,9 @@ export default function Om() {
         <div className="container">
           <h1>Om oss</h1>
           <p>
-            Vi utgår från Mölnlycke i Göteborg och erbjuder helhetslösningar för
-            catering med fokus på grill.
+            Vi utgår från Mölnlycke i Göteborg och erbjuder helhetslösningar inom grillcatering.
+            Med fokus på grill, god service och råvaror av högsta kvalitet skapar vi minnesvärda 
+            upplevelser för både företag och privatpersoner.
           </p>
         </div>
       </section>
@@ -26,12 +27,18 @@ export default function Om() {
           <div className="text">
             <h2>Glöden som startade Grill Janne</h2>
             <p>
-              Grill Janne föddes ur en enkel idé i Mölnlycke – att ta den äkta
-              grillupplevelsen dit festen är. Det som började som ett par grillar
-              och mycket passion har vuxit till ett uppskattat grillcateringföretag.
-              Sedan starten har vi grillat på allt från företagsfester och bröllop till
-              privata sommarkvällar. Med glöd, erfarenhet och bra råvaror ser vi till
-              att varje tillställning blir något att minnas – oavsett storlek.
+              Grill Janne startade 2013 med ett enkelt mål – att sprida glädje genom riktigt god grillmat.
+              Det började med att vi hjälpte andra eventfirmor, men har idag vuxit till en verksamhet som 
+              levererar grillcatering till både företag och privatpersoner över hela landet.
+              Vi lagar maten på plats – oavsett om det gäller mässor, konserter på Ullevi, företagsevent, 
+              bröllop eller privata fester. Vår mat är lagad från grunden, med fokus på smak, kvalitet och 
+              upplevelse. Vi erbjuder allt från klassisk BBQ och slow-cooked kött till fräscha grillbufféer, 
+              burgare och moderna streetfood-koncept. För den som vill lära sig mer arrangerar 
+              vi även grillkurser, där du får grilla tillsammans med våra erfarna grillmästare.
+              Grill Janne – din partner för grill, BBQ och event.
+            </p>
+            <p>
+              Grill Janne – din partner för grill, BBQ och event.
             </p>
             <a href="/kontakt" className="cta-outline">
               Kontakta oss

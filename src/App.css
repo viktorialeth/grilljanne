@@ -141,7 +141,7 @@ h3 {
   color: inherit; 
   text-decoration: none;
   font-family: "mesquite-std", serif !important;
-  font-size: 52px;
+  font-size: 64px;
 }
 
 .nav-links{ margin-left:auto; display:flex; gap:36px; }
@@ -156,7 +156,7 @@ h3 {
 
 @media (max-width: 980px) {
   .logo a{
-    font-size: 52px;
+    font-size: 64px;
   }
 }
 
@@ -451,7 +451,11 @@ h3 {
 }
 
 /* --- Hem: lite tajtare topp på sektionen --- */
-.news--home { padding: 100px 40px 90px 40px; }
+.news--home { 
+  padding: 100px 40px 100px 40px; 
+  background:#fff; 
+
+}
 
 /* Hjälpklass om du vill ha “osynlig rubrik” men tillgänglig för skärmläsare */
 .sr-only{
@@ -692,8 +696,8 @@ h3 {
 /* ===== CATERING OCH EVENT - MENYFÖRSLAG ===== */
 
 .menus{ 
-  padding: 100px 40px 20px 40px; 
-  background: #fff;
+  padding: 100px 40px 100px 40px; 
+  background: #F4F4F4;
   margin: 0 auto;
 }
   
@@ -709,7 +713,7 @@ h3 {
 .menu h3{ 
   color: var(--accent); 
   font-weight: 600; letter-spacing: .02em; 
-  font-size: clamp(18px, 2.2vw, 22px); 
+  font-size: clamp(20px, 2.2vw, 24px); 
   margin: 0 0 10px 0; }
 
 .menu p{ 
@@ -727,6 +731,25 @@ h3 {
   font-style: italic; 
   color: var(--text); 
   padding-left: 18px;
+}
+
+/* ===== MENY-BILDER ===== */
+.menu-image {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* gör bilden rektangulär */
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+}
+
+/* Anpassning mobil */
+@media (max-width: 980px) {
+  .menu-image {
+    aspect-ratio: 4 / 3;
+    margin-bottom: 12px;
+  }
 }
 
 @media (max-width: 980px){
@@ -935,7 +958,7 @@ h3 {
 
 .events{ 
   background:#fff; 
-  padding:120px 0 100px 60px;
+  padding:120px 0 100px 80px;
   margin: 0 auto;
 }
 
@@ -979,7 +1002,7 @@ h3 {
 .events-track{
   display:grid;
   grid-auto-flow:column;
-  grid-auto-columns:minmax(clamp(240px, 32vw, 420px), 1fr);
+  grid-auto-columns: minmax(clamp(280px, 26vw, 340px), 1fr);
   gap:20px;
   overflow-x:auto;
   padding:10px 20px 10px;
@@ -1001,6 +1024,7 @@ h3 {
   box-shadow: var(--shadow);
   display: flex;
   align-items: flex-end;
+  border-radius: 8px;
 }
 
 .event-gradient{ 
@@ -1040,6 +1064,7 @@ h3 {
 .event-overlay h3{ 
   margin:0 0 4px 0; 
   font-size:clamp(18px,2.2vw,22px);
+  color: #fff;
   text-transform: uppercase;
 }
 
@@ -1064,14 +1089,18 @@ h3 {
 @media (max-width:900px){
   .events-head{ grid-template-columns:1fr; align-items:start; gap:8px; }
   .events-ctrl{ justify-content:flex-end; }
+  .events{ 
+  padding:60px 0 60px 20px;
+  margin: 0 auto;
+}
 }
 
 
 /* === Mosaic 3-bilder på startsidan === */
 
 .mosaic3 {
-  background: #fff;
-  padding: 80px 0 60px;
+  background: #F4F4F4;
+  padding: 100px 0 100px;
 }
 
 .mosaic3 .container {
