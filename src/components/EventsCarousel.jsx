@@ -27,7 +27,7 @@ export default function EventsCarousel() {
       <div className="events-head">
   <div className="events-head-inner">
     <h2>Exempel på event</h2>
-    <p className="lede">Bläddra i galleriet och för musen över bilderna för mer information.</p>
+    <p className="lede">Bläddra i galleriet och tryck på bilderna för mer information.</p>
   </div>
   <div className="events-ctrl">
     <button className="events-nav" onClick={() => scrollByOne(-1)} aria-label="Föregående">‹</button>
