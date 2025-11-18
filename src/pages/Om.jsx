@@ -35,14 +35,13 @@ export default function Om() {
               upplevelse. Vi erbjuder allt från klassisk BBQ och slow-cooked kött till fräscha grillbufféer, 
               burgare och moderna streetfood-koncept. För den som vill lära sig mer arrangerar 
               vi även grillkurser, där du får grilla tillsammans med våra erfarna grillmästare.
-              Grill Janne – din partner för grill, BBQ och event.
             </p>
             <p>
               Grill Janne – din partner för grill, BBQ och event.
             </p>
-            <a href="/kontakt" className="cta-outline">
-              Kontakta oss
-            </a>
+            <button className="btn btn-outline" onClick={() => navigate("/kontakt")}>
+              KONTAKTA OSS
+            </button>
           </div>
 
           <div

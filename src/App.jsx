@@ -9,6 +9,13 @@ import Aktuellt from "./pages/Aktuellt.jsx";
 import Bilder from "./pages/Bilder.jsx";
 import Kontakt from "./pages/Kontakt.jsx";
 import Om from "./pages/Om.jsx";
+import Brollop from "./pages/Brollop.jsx";
+import Foretagsevent from "./pages/Foretagsevent.jsx";
+import Grillkurser from "./pages/Grillkurser.jsx";
+import Kundevent from "./pages/Kundevent.jsx";
+import Privatfest from "./pages/Privatfest.jsx";
+import Student from "./pages/Student.jsx";
+
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -36,6 +43,12 @@ export default function App() {
         <Route path="/kontakt" element={<Kontakt />} />
         <Route path="/om" element={<Om />} />
         <Route path="*" element={<Home />} />
+        <Route path="/brollop" element={<Brollop />} />
+        <Route path="/foretagsevent" element={<Foretagsevent />} />
+        <Route path="/grillkurser" element={<Grillkurser />} />
+        <Route path="/kundevent" element={<Kundevent />} />
+        <Route path="/privatfest" element={<Privatfest />} />
+        <Route path="/student" element={<Student />} />
       </Routes>
       <Footer />
     </>

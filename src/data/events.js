@@ -1,6 +1,4 @@
 // src/data/events.js
-
-// Importera bilder (exakt som i din mapp)
 import aw from "../assets/bilder/AW.jpg";
 import privatFest3 from "../assets/bilder/privat_fest_3.jpeg";
 import forberedelser from "../assets/bilder/forberedelser.jpeg";
@@ -11,13 +9,15 @@ import privatFest2 from "../assets/bilder/privat_fest_2.jpeg";
 export const EVENTS = [
   {
     slug: "foretagsevent",
+    path: "/foretagsevent",
     title: "Företagsevent",
     img: aw,
     blurb:
       "Planerar ni en företagsfest, kickoff eller personaldag? Grill Janne erbjuder grillcatering till företag – på plats hos er."
   },
   {
-    slug: "privat-fest",
+    slug: "privatfest",
+    path: "/privatfest",
     title: "Privat fest",
     img: privatFest3,
     blurb:
@@ -25,6 +25,7 @@ export const EVENTS = [
   },
   {
     slug: "grillkurser",
+    path: "/grillkurser",
     title: "Grillkurser",
     img: forberedelser,
     blurb:
@@ -32,6 +33,7 @@ export const EVENTS = [
   },
   {
     slug: "kundevent",
+    path: "/kundevent",
     title: "Kundevent",
     img: foretagsevent2,
     blurb:
@@ -39,6 +41,7 @@ export const EVENTS = [
   },
   {
     slug: "brollop",
+    path: "/brollop",
     title: "Bröllop",
     img: fintEvent,
     blurb:
@@ -46,6 +49,7 @@ export const EVENTS = [
   },
   {
     slug: "student",
+    path: "/student",
     title: "Student",
     img: privatFest2,
     blurb:
