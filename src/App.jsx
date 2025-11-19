@@ -5,8 +5,8 @@ import Footer from "./components/Footer.jsx";
 
 import Home from "./pages/Home.jsx";
 import Catering from "./pages/Catering.jsx";
-import Aktuellt from "./pages/Aktuellt.jsx";
 import Bilder from "./pages/Bilder.jsx";
+import Aktuellt from "./pages/Aktuellt.jsx";
 import Kontakt from "./pages/Kontakt.jsx";
 import Om from "./pages/Om.jsx";
 import Brollop from "./pages/Brollop.jsx";

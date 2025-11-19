@@ -9,6 +9,11 @@
   --card-border:#E9E6E4;
 }
 
+html, body {
+  background: #ffffff !important;
+  min-height: 100%;
+}
+
 *{box-sizing:border-box}
 html,body,#root{height:100%}
 
@@ -286,11 +291,10 @@ h3 {
 
 
 /* === MOBIL OVERLAY === */
-
 .mobile-menu{
   position: fixed;
   inset: 0;
-  background: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.97);
   transform: translateX(100%);
   transition: transform .28s ease;
   z-index: 1100;
@@ -370,7 +374,6 @@ h3 {
 }
 
 /* Stäng-knapp (X) uppe i hörnet */
-
 .mobile-close{
   position: absolute;
   top: 14px; right: 20px;
@@ -388,12 +391,7 @@ h3 {
 .mobile-close span:last-child{  transform: rotate(-45deg); }
 
 
-
-
-
-
 /* --------- KNAPPAR --------- */
-
 .btn{
   display:inline-flex; align-items:center; justify-content:center;
   font-weight:500; letter-spacing:.03em; text-decoration:none;
@@ -407,138 +405,14 @@ h3 {
 .btn-outline:hover{ background: var(--accent); color: #fff !important; border-color: var(--accent); }
 
 .hero-mobile-cta {
-  display: none;          /* dold på desktop */
+  display: none;          
   margin-top: 24px;
 }
 
 @media (max-width: 980px) {
   .hero-mobile-cta {
-    display: inline-flex; /* visas när nav är hamburger */
+    display: inline-flex; 
   }
-}
-
-/* --------- HERO --------- */
-
-.hero { background-size: cover; background-position: center; padding: 100px 0 100px; }
-.hero-inner { text-align: center; padding-block: 40px; }
-
-.eyebrow {
-  color: var(--accent); 
-  font-weight: 500; 
-  letter-spacing: .08em; 
-  text-transform: uppercase;
-  margin-bottom: 10px; 
-  font-size: clamp(20px, 1.4vw, 24px);
-}
-
-.lede {
-  font-size: clamp(16px, 1.5vw, 20px);
-  max-width: 980px; margin: 0 auto;
-  line-height: 1.5; color: var(--text);
-}
-
-@media (max-width: 980px) {
-  .hero {
-    padding: 100 0 0px 0;
-  }
-  .hero-inner {
-    padding: 20px 20px 0px 20px;
-  }
-}
-
-
-/* --------- HEM --------- */
-
-/* --------- FULLBLEED BILD --------- */
-.fullbleed {
-  min-height: 88vh; 
-  background-size: cover; 
-  background-position: center;
-  margin-top: 50px;
-}
-
-/* --- AKTUELLT-HOME --- */
-.news--home { 
-  padding: 100px 0 100px 40px; 
-  background:#fff; 
-  margin: 0 auto;
-}
-
-/* --------- AKTUELLT (gemensam layout för Hem + Aktuellt) --------- */
-.news{
-  background: white;
-  padding: 70px 0 60px 60px;
-  margin: 0 auto;
-}
-.news-head { 
-  padding: 0; 
-  margin: 0;
-
-}
-
-.lede-news { 
-  max-width: 60ch; 
-  margin: 0 0 20px 0; 
-  text-align: left; 
-  font-size: 18px; 
-  line-height: 1.6; 
-  color: var(--text);
-}
-
-/* === Två kolumner (gäller båda sidor) === */
-
-.container.news-columns {
-  padding: 0;
-}
-
-.news-columns {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 40px;
-  align-items: start;
-  margin-top: 100px;
-  margin-right: 0;
-}
-
-.news-col h3{ margin: 0 0 16px; color: var(--accent); }
-
-/* === Kort / inlägg (en kolumn-lista i högerkolumnen) === */
-.posts{ 
-  display: grid;
-  gap: 24px;
-  /* ingen grid-template-columns här -> ett kort per rad */
-}
-
-.post{
-  background: #fff; 
-  box-shadow: var(--shadow); 
-  overflow: hidden;
-  display: flex; 
-  flex-direction: column; 
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  justify-content: space-between;
-  border-radius: 8px;
-}
-
-.post-text{ padding: 28px 28px 32px; }
-
-.post h3{ 
-  color: var(--accent); 
-  font-size: clamp(20px, 2.2vw, 26px); 
-  margin-bottom: 10px; 
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-.post .date{ color:var(--accent); font-weight:600; margin-bottom:8px; }
-.post p{ color: var(--text); line-height: 1.6; }
-
-.post-image{ 
-  background-size: cover; 
-  background-position: center; 
-  aspect-ratio: 16 / 10; 
-  border-top: 1px solid var(--card-border);
-  margin-top: auto;
 }
 
 /* --- Följ på Facebook + inbäddning --- */
@@ -562,54 +436,104 @@ h3 {
   height: var(--fb-height) !important;
 }
 
-
-/* --- AKTUELLT-SIDAN --- */
-
-/* --- Aktuellt-sidan: lite extra topp-luft --- */
-.news--page { 
-  padding-top: 160px;
-  padding-bottom: 100px; 
-}
-.news--page .page-head { 
-  text-align: center;
-  padding-bottom: 0;
-  margin-bottom: 0;
-}
-
-/* Hjälpklass om du vill ha “osynlig rubrik” men tillgänglig för skärmläsare */
-.sr-only{
-  position: absolute !important;
-  width: 1px; height: 1px;
-  padding: 0; margin: -1px; overflow: hidden;
-  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+/* === SCROLL TO TOP KNAPP === */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
 }
 
-/* --- Mobil --- */
+.scroll-to-top:hover {
+  transform: scale(1.1);
+}
+
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* === BREADCRUMBS === */
+.breadcrumbs {
+  font-size: 14px;
+  margin: 0 0 20px 0;
+  opacity: 0.7;
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+.crumb-separator {
+  margin: 0 4px;
+}
+
+
+
+/* --------- HEM - HERO, FULLBLEED, AKTUELLT, KORT MED "VAD INGÅR", EVENTSLIDE, MOSAICBILDER, AKTUELLT, MENYFÖRSLAG, KONTAKT-CTA --------- */
+
+/* --------- HERO - HEM--------- */
+
+.hero { 
+  background-size: cover; 
+  background-position: center; 
+  background-color: #f4f4f4; }
+
+.hero-inner { 
+  text-align: center; 
+  padding-block: 40px; 
+  padding-top: 150px;
+}
+
+.eyebrow {
+  color: var(--accent); 
+  font-weight: 500; 
+  letter-spacing: .08em; 
+  text-transform: uppercase;
+  margin-bottom: 10px; 
+  font-size: clamp(20px, 1.4vw, 24px);
+}
+
+.lede {
+  font-size: clamp(16px, 1.5vw, 20px);
+  max-width: 980px; margin: 0 auto;
+  line-height: 1.5; color: var(--text);
+}
+
 @media (max-width: 980px) {
-  .news { padding: 100px 20px 50px 20px; }
-  .news-head { padding: 0; }
-  .news--page .page-head { 
-  padding-top: 20px;
-}
-
-  .news-columns{
-    grid-template-columns: 1fr;  /* stapla vertikalt */
-    gap: 0;
-    padding-top: 0;
+  .hero {
+    padding: 100 0 0px 0;
   }
-
-  .posts { gap: 22px; padding: 0; }
-
-  .news-col.news-col--right { 
-    padding-top: 20px; }
-
-  .container.news-columns {
-  padding-top: 50px;
+  .hero-inner {
+    padding: 100px 20px 0px 20px;
+  }
 }
+
+/* --------- FULLBLEED BILD - HEM --------- */
+.fullbleed {
+  min-height: 88vh; 
+  background-size: cover; 
+  background-position: center;
+  margin-top: 50px;
 }
 
 /* === TIDIGARE EVENT – mini-eventkarusell i Aktuellt === */
-
 .past-events {
   display: grid;
   grid-auto-flow: column;
@@ -622,7 +546,6 @@ h3 {
 }
 
 .news-col--right .past-events {
-  /* sträck ut i högerkolumnen */
   width: 100%;
 }
 
@@ -651,15 +574,15 @@ h3 {
   background: #f7f7f7;
 }
 
-/* trimma tracken lite så den passar boxen */
 .past-events-track {
   padding: 10px 20px 10px;
-  background: transparent; /* annars blir det helvit bakgrund inuti */
+  background: transparent; 
 }
 
-/* === Tidigare event – kortlayout med bild + vit panel === */
-
 .past-event-card {
+  aspect-ratio: auto !important;
+  height: auto !important;
+  min-height: unset !important;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -673,9 +596,9 @@ h3 {
 
 .past-event-image {
   width: 100%;
-  height: 260px;      /* välj valfri höjd */
+  height: 260px;      
   overflow: hidden;
-  flex-shrink: 0;     /* låt inte bilden krympa när texten är längre */
+  flex-shrink: 0;     
 }
 
 .past-event-image img {
@@ -686,28 +609,6 @@ h3 {
   border-radius: 8px;
 }
 
-@media (max-width: 600px) {
-  /* gör bilden lite lägre på små skärmar */
-  .past-event-image {
-    height: 200px;          /* istället för 260px */
-  }
-
-  .past-event-body {
-    padding: 12px 12px 18px;
-  }
-
-  .past-event-body h4 {
-    font-size: 16px;        /* lite mindre text */
-    line-height: 1.4;
-  }
-
-  .past-event-date {
-    font-size: 13px;
-    margin-bottom: 6px;
-  }
-}
-
-/* vita panelen under bilden */
 .past-event-body {
   padding: 18px 18px 22px;
   text-align: center;
@@ -735,18 +636,36 @@ h3 {
   color: var(--text);
 }
 
-/* dölj overlay-grejerna från event-card i just de här korten */
 .past-event-card .event-gradient,
 .past-event-card .event-title,
 .past-event-card .event-overlay {
   display: none !important;
 }
 
+@media (max-width: 600px) {
+  .past-event-image {
+    height: 200px;          
+  }
 
-/* --- HEM - KORT MED "VAD INGÅR" --- */
+  .past-event-body {
+    padding: 12px 12px 18px;
+  }
 
+  .past-event-body h4 {
+    font-size: 16px;        
+    line-height: 1.4;
+  }
+
+  .past-event-date {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+}
+
+/* --- KORT MED "VAD INGÅR" - HEM --- */
 .feature-cards-home { 
-  padding: 50px 0 0 0;
+  padding: 100px 0 100px 0;
+  background-color: #F4F4F4;
 }
 
 .include-inner {
@@ -781,7 +700,7 @@ h3 {
 .feature-grid-home {
   max-width: 100%; 
   margin: 0 auto; 
-  padding: 50px 60px 100px 60px;
+  padding: 50px 60px 0 60px;
   display: grid; 
   grid-template-columns: repeat(3, 1fr); 
   gap: 20px;
@@ -877,11 +796,9 @@ h3 {
   opacity: 0.75;
 }
 
-/* --- MOBIL: en kolumn & auto-höjd på raderna --- */
-
 @media (max-width: 980px) {
   .feature-cards-home {
-    padding: 0;
+    padding: 60px 0 60px 0;
   }
 
   .include-inner {
@@ -892,20 +809,18 @@ h3 {
 
   .feature-grid-home {
     grid-template-columns: 1fr;
-    padding: 40px 20px 100px 20px;
-    grid-auto-rows: auto;   /* <— viktigt: låt raderna bli så höga som innehållet */
+    padding: 40px 20px 0 20px;
+    grid-auto-rows: auto;
   }
 
   .feature-card-home {
-    height: auto;           /* <— så kortet krymper när innehållet är stängt */
+    height: auto;          
   }
 
   .feature-card-home h3 {
   font-size: 20px;
 }
 }
-
-/* --- DESKTOP: visa allt innehåll, ingen ikon --- */
 
 @media (min-width: 981px) {
   .feature-card-home__icon {
@@ -921,8 +836,303 @@ h3 {
   }
 }
 
-/* ===== HEM - MENYFÖRSLAG ===== */
+/* === EVENTS horisontellt galleri - HEM === */
+.events{ 
+  background:#fff; 
+  padding:100px 0 100px 60px;
+  margin: 0 auto;
+}
 
+.events-head{
+  display:grid; 
+  grid-template-columns:1fr auto; 
+  align-items:end; 
+  gap:16px; 
+  margin-bottom:18px;
+}
+
+.events-head .lede{ 
+  margin:0; 
+  padding: 0;
+  font-family: "Poppins", system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.events-head-inner {
+  padding: 0 0 20px 0;
+}
+
+.events-head-inner h2 {
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.events-head-inner .lede {
+  margin: 0;
+  color: var(--text);
+  Padding: 0;
+}
+
+.events-ctrl{ display:flex; gap:8px; padding-right: 40px}
+.events-nav{ width:38px; height:38px; border:1px solid var(--card-border); background:#fff; cursor:pointer; line-height:1; font-size:22px; }
+.events-nav:hover{ background:#f7f7f7; }
+
+.events-track{
+  display:grid;
+  grid-auto-flow:column;
+  grid-auto-columns: minmax(clamp(280px, 26vw, 340px), 1fr);
+  gap:20px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  background:#fff; 
+}
+
+.events-track::-webkit-scrollbar {
+  margin-top: 20px;
+}
+
+.event-card{
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  scroll-snap-align: start;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  cursor: pointer; 
+}
+
+.event-gradient{ 
+  position:absolute; 
+  inset:auto 0 0 0; 
+  height:38%; 
+  background:linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0)); 
+  pointer-events:none; }
+
+.event-title{ 
+  position: absolute;        
+  left: 16px;                
+  bottom: 16px;
+  z-index: 2;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  font-size: clamp(20px, 2.2vw, 26px);
+  padding: 0;                
+  transition: all 0.25s ease;
+}
+
+.event-overlay{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 18px;
+  gap: 8px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0);
+  transform: translateY(6%);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+
+.event-overlay h3{ 
+  margin:0 0 4px 0; 
+  font-size:clamp(20px,2.2vw,26px);
+  color: #fff;
+}
+
+.event-overlay p{ 
+  margin:0; 
+  font-size:clamp(14px,1.6vw,16px); 
+  line-height:1.45; 
+  color:#f1f1f1; }
+
+.event-card:hover .event-overlay,
+.event-card:focus-within .event-overlay{
+  background: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.event-card:hover .event-title {
+  transform: translateY(-60px);
+  opacity: 0; 
+}
+
+@media (max-width:900px){
+  .events-head{ grid-template-columns:1fr; align-items:start; gap:8px; }
+  .events-ctrl{ justify-content:flex-end; }
+  .events{ 
+  padding:60px 0 60px 20px;
+  margin: 0 auto;
+}
+}
+
+/* === Mosaic 3-bilder - HEM === */
+
+.mosaic3 {
+  background: #F4F4F4;
+  padding: 100px 0 100px 0;
+}
+
+.mosaic3 .container {
+  margin: 0 auto;
+  padding: 0 60px;
+  width: 100%;
+}
+
+.mosaic3-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+
+.m3-item {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.m3-left {
+  grid-column: 1;             
+  grid-row: 1 / span 2;       
+  aspect-ratio: 1.7 / 2;
+}
+
+.m3-right-top {
+  grid-column: 2;
+  grid-row: 1;
+  aspect-ratio: 16 / 9;
+}
+
+.m3-right-bottom {
+  grid-column: 2;
+  grid-row: 2;
+  aspect-ratio: 16 / 9;
+}
+
+.m3-cta { text-align: center; margin-top: 28px; }
+
+@media (max-width: 980px) {
+  .mosaic3 .container { 
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%; }
+
+  .mosaic3 { 
+    padding: 60px 0 60px 0;
+   }
+  
+  .mosaic3-grid {
+    grid-template-columns: 1fr; 
+    gap: 14px;
+  }
+
+  .m3-left,
+  .m3-right-top,
+  .m3-right-bottom {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 520px) {
+  .m3-left,
+  .m3-right-top,
+  .m3-right-bottom {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+/* --- AKTUELLT - HEM --- */
+  .news--home { 
+  padding: 100px 0 0 60px; 
+  background:#fff; 
+  margin: 0 auto;
+}
+
+.news-head { 
+  padding: 0; 
+  margin: 0;
+
+}
+
+.lede-news { 
+  max-width: 60ch; 
+  margin: 0 0 20px 0; 
+  text-align: left; 
+  font-size: 18px; 
+  line-height: 1.6; 
+  color: var(--text);
+}
+
+.container.news-columns {
+  padding: 0;
+}
+
+.news-columns {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 100px;
+  margin-right: 0;
+}
+
+.news-col h3{ margin: 0 0 16px; color: var(--accent); }
+
+.sr-only{
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+@media (max-width: 980px) {
+  .news-head { padding: 0; }
+  .news--page .page-head { 
+  padding-top: 20px;
+}
+
+  .news--home { 
+  padding: 60px 0 0 20px; 
+  background:#fff; 
+  margin: 0 auto;
+}
+
+  .news-columns {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 60px 0 60px 0;
+    margin-top: 0;
+  }
+
+  .posts { gap: 22px; padding: 0; }
+
+  .news-col.news-col--right { 
+    padding-top: 20px; }
+
+  .container.news-columns {
+  padding-top: 50px;
+}
+}
+
+/* ===== MENYFÖRSLAG - HEM (OCH EVENTSIDOR) ===== */
 .menus{ 
   padding: 100px 0 100px 0; 
   background: #F4F4F4;
@@ -1000,6 +1210,34 @@ h3 {
 .text-cta{ display:inline-block; margin-top: 10px; font-weight: 600; color: var(--accent); text-decoration: none; border-bottom: 2px solid var(--accent); padding-bottom: 2px; }
 
 
+/* KONTAKT-CTA - HEM */
+.contact-cta{ 
+  background: #fff; 
+  border-top: 1px solid var(--card-border); 
+  border-bottom: 1px solid var(--card-border); 
+  padding: 0px 60px 0 60px;
+  margin: 0 auto; 
+}
+
+.contact-cta-inner{ 
+  text-align: left; 
+  padding: 50px 0 50px 0;
+}
+
+.contact-cta a{ color: var(--accent); }
+
+@media (max-width: 980px){
+  .contact-cta { 
+    padding: 50px 20px 50px 20px;} 
+  .contact-cta-inner{ 
+  padding: 50px 0 50px 0;
+}
+  
+  }
+
+
+
+
 /* === BILDER === */
 .lede-bilder {
   max-width: 72ch;
@@ -1028,7 +1266,6 @@ h3 {
   line-height: 1.6;
 }
 
-/* Fullbredds-galleri utan svart overlay */
 .image-grid-full {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -1063,35 +1300,7 @@ h3 {
 }
 
 
-/* Kontakt-CTA */
-
-.contact-cta{ 
-  background: #fff; 
-  border-top: 1px solid var(--card-border); 
-  border-bottom: 1px solid var(--card-border); 
-  padding: 50px 60px 0 60px;
-  margin: 0 auto; 
-}
-
-.contact-cta-inner{ 
-  text-align: left; 
-  padding: 50px 60px 50px 60px;
-}
-
-.contact-cta a{ color: var(--accent); }
-
-@media (max-width: 980px){
-  .contact-cta { 
-    padding: 50px 20px 50px 20px;} 
-  .contact-cta-inner{ 
-  padding: 50px 0 50px 0;
-}
-  
-  }
-
-
 /* ===== KONTAKT (form) ===== */
-
 .contact {  
   background: #fff;
   padding: 175px 0 150px 0;
@@ -1184,240 +1393,13 @@ h3 {
 }
 
 
-/* === EVENTS – horisontellt galleri (Home) === */
-.events{ 
-  background:#fff; 
-  padding:120px 0 100px 60px;
-  margin: 0 auto;
-}
-
-.events-head{
-  display:grid; 
-  grid-template-columns:1fr auto; 
-  align-items:end; 
-  gap:16px; 
-  margin-bottom:18px;
-}
-
-.events-head .lede{ 
-  margin:0; 
-  padding: 0;
-  font-family: "Poppins", system-ui, -apple-system, sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.6;
-  color: var(--text);
-}
-
-.events-head-inner {
-  padding: 0 0 20px 0;
-}
-
-.events-head-inner h2 {
-  margin-bottom: 20px;
-  padding: 0;
-}
-
-.events-head-inner .lede {
-  margin: 0;
-  color: var(--text);
-  Padding: 0;
-}
-
-.events-ctrl{ display:flex; gap:8px; padding-right: 40px}
-.events-nav{ width:38px; height:38px; border:1px solid var(--card-border); background:#fff; cursor:pointer; line-height:1; font-size:22px; }
-.events-nav:hover{ background:#f7f7f7; }
-
-.events-track{
-  display:grid;
-  grid-auto-flow:column;
-  grid-auto-columns: minmax(clamp(280px, 26vw, 340px), 1fr);
-  gap:20px;
-  overflow-x:auto;
-  padding:10px 20px 10px;
-  scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
-  background:#fff; 
-}
-
-.events-track::-webkit-scrollbar {
-  margin-top: 20px;
-}
-
-.event-card{
-  position: relative;
-  aspect-ratio: 4 / 5;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
-  scroll-snap-align: start;
-  box-shadow: var(--shadow);
-  display: flex;
-  align-items: center;
-  border-radius: 8px;
-  cursor: pointer;          /* 👈 lägg till */
-}
-
-.event-gradient{ 
-  position:absolute; 
-  inset:auto 0 0 0; 
-  height:38%; 
-  background:linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0)); 
-  pointer-events:none; }
-
-.event-title{ 
-  position: absolute;        /* istället för relative */
-  left: 16px;                /* nere till vänster */
-  bottom: 16px;
-  z-index: 2;
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  font-size: clamp(16px, 2.2vw, 24px);
-  padding: 0;                /* padding behövs inte längre */
-  transition: all 0.25s ease;
-}
-
-.event-overlay{
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 18px;
-  gap: 8px;
-  color: #fff;
-  background: rgba(0, 0, 0, 0);
-  transform: translateY(6%);
-  opacity: 0;
-  transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
-}
-
-.event-overlay h3{ 
-  margin:0 0 4px 0; 
-  font-size:clamp(20px,2.2vw,26px);
-  color: #fff;
-}
-
-.event-overlay p{ 
-  margin:0; 
-  font-size:clamp(14px,1.6vw,16px); 
-  line-height:1.45; 
-  color:#f1f1f1; }
-
-.event-card:hover .event-overlay,
-.event-card:focus-within .event-overlay{
-  background: rgba(0, 0, 0, 0.65);
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.event-card:hover .event-title {
-  transform: translateY(-60px);
-  opacity: 0; /* försvinner mjukt */
-}
-
-@media (max-width:900px){
-  .events-head{ grid-template-columns:1fr; align-items:start; gap:8px; }
-  .events-ctrl{ justify-content:flex-end; }
-  .events{ 
-  padding:60px 0 60px 20px;
-  margin: 0 auto;
-}
-}
-
-
-/* === Mosaic 3-bilder på startsidan === */
-
-.mosaic3 {
-  background: #F4F4F4;
-  padding: 100px 0 100px;
-}
-
-.mosaic3 .container {
-  margin: 0 auto;
-  padding: 0 60px;
-  width: 100%;
-}
-
-.mosaic3-grid {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-  justify-items: center;
-}
-
-.m3-item {
-  width: 100%;
-  background-size: cover;
-  background-position: center;
-  border-radius: 6px;
-  box-shadow: var(--shadow);
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.m3-left {
-  grid-column: 1;             
-  grid-row: 1 / span 2;       
-  aspect-ratio: 1.7 / 2;
-}
-
-.m3-right-top {
-  grid-column: 2;
-  grid-row: 1;
-  aspect-ratio: 16 / 9;
-}
-
-.m3-right-bottom {
-  grid-column: 2;
-  grid-row: 2;
-  aspect-ratio: 16 / 9;
-}
-
-.m3-cta { text-align: center; margin-top: 28px; }
-
-/* --- Mobil/smalare --- */
-@media (max-width: 980px) {
-  .mosaic3 .container { 
-    margin: 0 auto;
-    padding: 0 20px;
-    width: 100%; }
-
-  .mosaic3-grid {
-    grid-template-columns: 1fr;  /* en kolumn */
-    gap: 14px;
-  }
-
-  /* Nollställ kolumn/rad och gör alla lika */
-  .m3-left,
-  .m3-right-top,
-  .m3-right-bottom {
-    grid-column: 1 / -1 !important;
-    grid-row: auto !important;
-    aspect-ratio: 4 / 3;         /* “häng med”-höjd utan min-height */
-  }
-}
-
-/* Extra litet */
-@media (max-width: 520px) {
-  .m3-left,
-  .m3-right-top,
-  .m3-right-bottom {
-    aspect-ratio: 1 / 1;         /* valfritt: snygga kvadrater på små mobiler */
-  }
-}
-
-
 /* ===== OM OSS ===== */
-
 .catering-page {
   background: #f4f4f4;
 }
 
-/* H1-blocket överst */
 .page-hero {
-  padding: 160px 0 80px 0;          /* luft under fixed header */
+  padding: 160px 0 80px 0;          
   background: #f4f4f4;
 }
 
@@ -1435,7 +1417,7 @@ h3 {
 
 .catering-intro {
   background: #fff;
-  padding: 150px 0 120px 0;
+  padding: 150px 0 100px 0;
 }
 
 .catering-content {
@@ -1457,7 +1439,6 @@ h3 {
   margin: 0 0 18px 0;
 }
 
-/* Bilden till höger */
 .catering-content .image {
   width: 100%;
   height: 100%;
@@ -1466,7 +1447,6 @@ h3 {
   border-radius: 8px;
 }
 
-/* Länk-knappen "Kontakta oss" */
 .cta-outline {
   display: inline-block;
   margin-top: 16px;
@@ -1486,7 +1466,6 @@ h3 {
   color: #fff;
 }
 
-/* Mobilanpassning */
 @media (max-width: 980px) {
   .page-hero {
     padding: 130px 0 60px 0;
@@ -1516,40 +1495,7 @@ h3 {
   }
 }
 
-
-/* --------- FACEBOOK --------- */
-
-.news-col h3 { 
-  margin-bottom: 32px; }
-
-.fb-plugin-wrap {
-  width: 100%;
-  max-width: 640px;
-}
-
-.upcoming-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.upcoming-list li {
-  margin: 12px 0;
-  font-size: 18px;
-  color: var(--text);
-}
-
-@media (max-width: 980px) {
-  .news-columns {
-    grid-template-columns: 1fr;
-    gap: 22px;
-    padding: 60px 0 60px 0;
-    margin-top: 0;
-  }
-  .fb-plugin-wrap { max-width: 100%; }
-}
-
 /* --------- FOOTER --------- */
-
 .footer{ 
   background: var(--accent); 
   color: #fff; 
@@ -1602,51 +1548,4 @@ h3 {
   .foot-title--big {
   margin-bottom: 0; 
   margin-top: 20px;}
-}
-
-/* === SCROLL TO TOP KNAPP === */
-.scroll-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 48px;
-  height: 48px;
-  background: var(--accent);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 24px;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
-  z-index: 1000;
-}
-
-.scroll-to-top:hover {
-  transform: scale(1.1);
-}
-
-.scroll-to-top.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-.breadcrumbs {
-  font-size: 14px;
-  margin: 0 0 20px 0;
-  opacity: 0.7;
-}
-
-.breadcrumbs a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.breadcrumbs a:hover {
-  text-decoration: underline;
-}
-
-.crumb-separator {
-  margin: 0 4px;
 }

@@ -1,0 +1,4 @@
+---
+title: "VI FIXAR GRILLEN PÅ DITT NÄSTA EVENT"
+lede: "Vill du ha gott grillat till ditt event eller fest? Vi erbjuder grillcatering till allt från företagsevenemang och privata tillställningar. Vi ansvarar för grillningen på plats, så att du kan ägna dig åt gästerna. Resultatet blir god grill – levererad dit du behöver den. Givetvis har vi också grillkurser."
+---
