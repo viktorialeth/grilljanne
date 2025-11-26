@@ -415,11 +415,6 @@ behöver tillsammans.`,
               ))}
             </ul>
           </div>
-
-          <div className="news-col news-col--right">
-            <h3>Tidigare event</h3>
-            <PastEventsStrip />
-          </div>
         </div>
       </section>
 
