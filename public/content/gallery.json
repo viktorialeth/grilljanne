@@ -1,7 +1,7 @@
 {
   "items": [
     {
-      "image": "/uploads/example-1.jpg",
+      "image": "/uploads/privat_fest_2.jpeg",
       "alt": "Exempelbild 1"
     },
     {
@@ -36,9 +36,6 @@
     },
     {
       "image": "/uploads/pulledpork_wrap_3.jpg"
-    },
-    {
-      "image": "/uploads/pulledpork_grill_3.jpg"
     }
   ]
 }
