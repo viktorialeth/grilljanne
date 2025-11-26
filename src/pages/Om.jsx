@@ -9,7 +9,7 @@ export default function Om() {
         <div className="container">
           <h1>Om oss</h1>
           <p>
-            Vi utgår från Mölnlycke i Göteborg och erbjuder helhetslösningar inom grillcatering.
+            Vi utgår Mölnlycke nära Göteborg och erbjuder helhetslösningar inom grillcatering.
             Med fokus på grill, god service och råvaror av högsta kvalitet skapar vi minnesvärda 
             upplevelser för både företag och privatpersoner.
           </p>

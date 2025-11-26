@@ -58,13 +58,14 @@ export default function Header() {
   const scrollTopSmooth = () =>
     window.scrollTo({ top: 0, behavior: "smooth" });
 
-  // Scroll till sektion
+  // Scroll till sektion med givet id
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (!el) return;
 
     const headerOffset = 80;
-    const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+    const elementPosition =
+      el.getBoundingClientRect().top + window.pageYOffset;
     const offsetPosition = elementPosition - headerOffset;
 
     window.scrollTo({
@@ -94,6 +95,22 @@ export default function Header() {
     } else {
       scrollTopSmooth();
     }
+    closeMenu();
+  };
+
+  // 🔹 NYTT: Event → hem + scroll till sektionen "events"
+  const handleEventSectionClick = (e) => {
+    e.preventDefault();
+
+    const goToEvents = () => scrollToSection("events");
+
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(goToEvents, 50);
+    } else {
+      goToEvents();
+    }
+
     closeMenu();
   };
 
@@ -166,6 +183,7 @@ export default function Header() {
 
           {/* DESKTOP-NAV */}
           <nav className="nav-links">
+            {/* Event + dropdown */}
             <div
               className="nav-item nav-item--has-dropdown"
               ref={desktopEventRef}
@@ -177,6 +195,7 @@ export default function Header() {
                 className={`nav-link nav-link--dropdown ${
                   eventOpenDesktop ? "is-open" : ""
                 }`}
+                onClick={handleEventSectionClick} // ⬅️ scrollar till "events"
               >
                 Event
                 <span className="nav-link-arrow">▾</span>
@@ -225,11 +244,19 @@ export default function Header() {
                 </button>
               </div>
             </div>
-
-            <a href="/#aktuellt" onClick={handleAktuelltClick}>Aktuellt</a>
-            <a href="/bilder" onClick={handleNavClick("/bilder")}>Bilder</a>
-            <a href="/om" onClick={handleNavClick("/om")}>Om oss</a>
-            <a href="/#menyforslag" onClick={handleMenyforslagClick}>Menyförslag</a>
+            
+            <a href="/#menyforslag" onClick={handleMenyforslagClick}>
+              Menyförslag
+            </a>
+            <a href="/bilder" onClick={handleNavClick("/bilder")}>
+              Bilder
+            </a>
+            <a href="/#aktuellt" onClick={handleAktuelltClick}>
+              Aktuellt
+            </a>
+            <a href="/om" onClick={handleNavClick("/om")}>
+              Om oss
+            </a>
           </nav>
 
           <a
@@ -269,9 +296,11 @@ export default function Header() {
 
         <div className="mobile-menu-inner">
           <div className="mobile-links">
-            <a href="/" onClick={handleLogoClick}>Hem</a>
+            <a href="/" onClick={handleLogoClick}>
+              Hem
+            </a>
 
-            {/* Mobil: Event med egen dropdown (klick) */}
+            {/* Mobil: Event med egen dropdown (låt den vara som innan) */}
             <div ref={mobileEventRef}>
               <button
                 type="button"
@@ -326,11 +355,21 @@ export default function Header() {
               )}
             </div>
 
-            <a href="/#aktuellt" onClick={handleAktuelltClick}>Aktuellt</a>
-            <a href="/bilder" onClick={handleNavClick("/bilder")}>Bilder</a>
-            <a href="/om" onClick={handleNavClick("/om")}>Om oss</a>
-            <a href="/#menyforslag" onClick={handleMenyforslagClick}>Menyförslag</a>
-            <a href="/kontakt" onClick={handleNavClick("/kontakt")}>Kontakt</a>
+            <a href="/#aktuellt" onClick={handleAktuelltClick}>
+              Aktuellt
+            </a>
+            <a href="/bilder" onClick={handleNavClick("/bilder")}>
+              Bilder
+            </a>
+            <a href="/om" onClick={handleNavClick("/om")}>
+              Om oss
+            </a>
+            <a href="/#menyforslag" onClick={handleMenyforslagClick}>
+              Menyförslag
+            </a>
+            <a href="/kontakt" onClick={handleNavClick("/kontakt")}>
+              Kontakt
+            </a>
           </div>
 
           <div>

@@ -1,3 +1,4 @@
+// src/pages/Home.jsx
 import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { IMAGES } from "../data/images.js";
@@ -11,6 +12,9 @@ export default function Home() {
 
   // === Scroll to top-knapp ===
   const [showScroll, setShowScroll] = useState(false);
+
+    // CMS-innehåll för startsidans hero
+  const [homeContent, setHomeContent] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,16 +31,16 @@ export default function Home() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // 🔹 NYTT: om vi landar på /#events -> scrolla till event-sektionen
+  // Om vi landar på /#events -> scrolla till event-sektionen
   useEffect(() => {
     if (location.hash === "#events") {
-      // vänta tills DOMen är renderad
       setTimeout(() => {
         const el = document.getElementById("events");
         if (!el) return;
 
-        const headerOffset = 80; // din fasta navbar
-        const elementPosition = el.getBoundingClientRect().top + window.pageYOffset;
+        const headerOffset = 80;
+        const elementPosition =
+          el.getBoundingClientRect().top + window.pageYOffset;
         const offsetPosition = elementPosition - headerOffset;
 
         window.scrollTo({
@@ -46,6 +50,22 @@ export default function Home() {
       }, 0);
     }
   }, [location]);
+
+    // Hämta CMS-data för hero-sektionen
+  useEffect(() => {
+    fetch("/content/home.json")
+      .then((res) => {
+        if (!res.ok) throw new Error("Kunde inte läsa /content/home.json");
+        return res.json();
+      })
+      .then((data) => {
+        setHomeContent(data);
+      })
+      .catch((err) => {
+        console.error("Fel vid hämtning av home.json:", err);
+      });
+  }, []);
+
 
   // Data för "Vad ingår?"-korten
   const featureCards = [
@@ -104,20 +124,21 @@ behöver tillsammans.`,
     <main>
       <section className="hero">
         <div className="container hero-inner">
-          <p className="eyebrow">GRILLEVENT MED GLÖD</p>
-          <h1>VI FIXAR GRILLEN PÅ DITT NÄSTA EVENT</h1>
-          <p className="lede">
-            Vill du ha gott grillat till ditt event eller fest? Vi erbjuder grillcatering till allt
-            från företagsevenemang och privata tillställningar. Vi ansvarar för grillningen på
-            plats, så att du kan ägna dig åt gästerna. Resultatet blir god grill – levererad dit du
-            behöver den. Givetvis har vi också grillkurser.
+          <p className="eyebrow">
+            {homeContent?.eyebrow ?? "GRILLEVENT MED GLÖD"}
           </p>
-          {/* MOBIL-KONTAKTKNAPP */}
+          <h1>
+            {homeContent?.title ?? "VI GRILLAR PÅ DITT NÄSTA EVENT"}
+          </h1>
+          <p className="lede">
+            {homeContent?.lede ??
+              "Vill du ha gott grillat till ditt event eller fest? Vi erbjuder grillcatering till allt från företagsevenemang och privata tillställningar. Vi ansvarar för grillningen på plats, så att du kan ägna dig åt gästerna. Resultatet blir god grill – levererad dit du behöver den. Givetvis har vi också grillkurser."}
+          </p>
           <button
             className="btn btn-solid hero-mobile-cta"
             onClick={() => navigate("/kontakt")}
           >
-            KONTAKTA OSS
+            {homeContent?.ctaLabel ?? "KONTAKTA OSS"}
           </button>
         </div>
         <section
@@ -138,7 +159,10 @@ behöver tillsammans.`,
               dina vänner, kolleger, kunder etc. Vår idé är simpel - grill på plats för alla
               tillfällen!
             </p>
-            <button className="btn btn-outline" onClick={() => navigate("/kontakt")}>
+            <button
+              className="btn btn-outline"
+              onClick={() => navigate("/kontakt")}
+            >
               KONTAKTA OSS
             </button>
           </div>
@@ -183,70 +207,9 @@ behöver tillsammans.`,
         </div>
       </section>
 
-      {/* Event-karusell */}
-      <EventsCarousel />
-
-      {/* === MOSAIC 3-BILDER === */}
-      <section className="mosaic3">
-        <div className="container">
-          <div className="mosaic3-grid">
-            <a
-              className="m3-item m3-left"
-              style={{ backgroundImage: `url(${IMAGES.grid1})` }}
-            />
-            <a
-              className="m3-item m3-right-top"
-              style={{ backgroundImage: `url(${IMAGES.grid2})` }}
-            />
-            <a
-              className="m3-item m3-right-bottom"
-              style={{ backgroundImage: `url(${IMAGES.grid3})` }}
-            />
-          </div>
-
-          <div className="m3-cta">
-            <a className="btn btn-outline" href="/bilder">
-              SE ALLA BILDER
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* === AKTUELLT (hem) === */}
-      <section className="news news--home" id="aktuellt">
-        <div className="container news-head">
-          <h2>Aktuellt</h2>
-          <p className="lede lede-news">
-            Håll koll på Grill Janne! Här berättar vi när vi står på event och tillställningar. Följ
-            oss på Facebook för att se fler bilder och uppdateringar.
-          </p>
-          <a
-            href="https://www.facebook.com/people/Grill-Janne/100075682557073/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-outline"
-          >
-            FÖLJ OSS PÅ FACEBOOK
-          </a>
-        </div>
-
-        {/* Två kolumner */}
-        <div className="container news-columns">
-          {/* Vänster: Kommande event */}
-          <div className="news-col">
-            <h3>Kommande event</h3>
-            <ul className="upcoming-list">
-              <li> Ullevi, Luke Combs, lördag 4/7-26</li>
-              <li> Ullevi, Swedish House Maffia, fredag 28/8-26</li>
-              <li> Ullevi, Swedish House Maffia, lördag 29/8-26</li>
-            </ul>
-          </div>
-
-          <div className="news-col news-col--right">
-            <h3>Tidigare event</h3>
-            <PastEventsStrip />
-          </div>
-        </div>
+      {/* 🔹 TYP AV EVENT – denna sektion får id="events" */}
+      <section id="events">
+        <EventsCarousel />
       </section>
 
       {/* --- MENYFÖRSLAG --- */}
@@ -358,6 +321,65 @@ behöver tillsammans.`,
           </div>
         </div>
       </section>
+
+      {/* === MOSAIC 3-BILDER === */}
+      <section className="mosaic3">
+        <div className="container">
+          <div className="mosaic3-grid">
+            <a
+              className="m3-item m3-left"
+              style={{ backgroundImage: `url(${IMAGES.grid1})` }}
+            />
+            <a
+              className="m3-item m3-right-top"
+              style={{ backgroundImage: `url(${IMAGES.grid2})` }}
+            />
+            <a
+              className="m3-item m3-right-bottom"
+              style={{ backgroundImage: `url(${IMAGES.grid3})` }}
+            />
+          </div>
+
+          <div className="m3-cta">
+            <a className="btn btn-outline" href="/bilder">
+              SE ALLA BILDER
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* === AKTUELLT (hem) === */}
+      <section className="news news--home" id="aktuellt">
+        <div className="container news-head">
+          <h2>Aktuellt</h2>
+          <p className="lede lede-news">
+            Håll koll på Grill Janne! Här berättar vi när vi står på event och tillställningar. Följ
+            oss på Facebook för att se fler bilder och uppdateringar.
+          </p>
+          <a
+            href="https://www.facebook.com/people/Grill-Janne/100075682557073/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-outline"
+          >
+            FÖLJ OSS PÅ FACEBOOK
+          </a>
+        </div>
+
+        {/* Två kolumner */}
+        <div className="container news-columns">
+          {/* Vänster: Kommande event */}
+          <div className="news-col">
+            <h3>Kommande event</h3>
+            <ul className="upcoming-list">
+              <li> Ullevi, Luke Combs, lördag 4/7-26</li>
+              <li> Ullevi, Swedish House Maffia, fredag 28/8-26</li>
+              <li> Ullevi, Swedish House Maffia, lördag 29/8-26</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
 
       {/* KONTAKT-CTA */}
       <section className="contact-cta">

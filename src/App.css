@@ -980,7 +980,7 @@ h3 {
 /* === Mosaic 3-bilder - HEM === */
 
 .mosaic3 {
-  background: #F4F4F4;
+  background: #fff;
   padding: 100px 0 100px 0;
 }
 
@@ -1061,8 +1061,8 @@ h3 {
 
 /* --- AKTUELLT - HEM --- */
   .news--home { 
-  padding: 100px 0 0 60px; 
-  background:#fff; 
+  padding: 100px 60px 100px 60px; 
+  background:#f4f4f4; 
   margin: 0 auto;
 }
 
@@ -1090,7 +1090,7 @@ h3 {
   grid-template-columns: 1fr 2fr;
   gap: 40px;
   align-items: start;
-  margin-top: 100px;
+  margin-top: 50px;
   margin-right: 0;
 }
 
@@ -1110,8 +1110,8 @@ h3 {
 }
 
   .news--home { 
-  padding: 60px 0 0 20px; 
-  background:#fff; 
+  padding: 60px 20px 60px 20px; 
+  background:#f4f4f4; 
   margin: 0 auto;
 }
 
@@ -1212,8 +1212,7 @@ h3 {
 
 /* KONTAKT-CTA - HEM */
 .contact-cta{ 
-  background: #fff; 
-  border-top: 1px solid var(--card-border); 
+  background: #fff;  
   border-bottom: 1px solid var(--card-border); 
   padding: 0px 60px 0 60px;
   margin: 0 auto; 

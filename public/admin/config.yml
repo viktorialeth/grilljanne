@@ -5,17 +5,19 @@ backend:
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
+# Så du kan köra lokalt med decap-server
 local_backend: true
 
 collections:
-  # Vi fyller på riktiga sidor senare.
-  # Den här är bara en test/skeleton så att admin-sidan funkar.
-  - label: "Inställningar"
-    name: "settings"
+  - label: "Startsida"
+    name: "home"
     files:
-      - label: "Startsida – introtext"
-        name: "home_intro"
-        file: "content/home_intro.md"
+      - label: "Hero-sektion"
+        name: "hero"
+        file: "public/content/home.json"  # <-- filen vi ska skapa
+        format: "json"
         fields:
+          - { label: "Överrad", name: "eyebrow", widget: "string" }
           - { label: "Titel", name: "title", widget: "string" }
           - { label: "Ingress", name: "lede", widget: "text" }
+          - { label: "CTA-knapp text", name: "ctaLabel", widget: "string", default: "KONTAKTA OSS" }
