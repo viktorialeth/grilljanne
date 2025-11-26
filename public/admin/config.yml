@@ -75,3 +75,14 @@ collections:
           # --- KONTAKT-CTA ---
           - { label: "Kontakt-CTA – rubrik", name: "contactTitle", widget: "string" }
           - { label: "Kontakt-CTA – text", name: "contactBody", widget: "text" }
+
+  - name: "om"
+    label: "Om-sida"
+    file: "public/content/om.json"
+    fields:
+      - { label: "Titel", name: "title", widget: "string" }
+      - { label: "Intro", name: "intro", widget: "text" }
+      - { label: "Sektion – rubrik", name: "sectionTitle", widget: "string" }
+      - { label: "Sektion – text", name: "sectionBody", widget: "text" }
+      - { label: "Avslutande text", name: "sectionEnd", widget: "string" }
+      - { label: "CTA-knapp", name: "ctaLabel", widget: "string" }
