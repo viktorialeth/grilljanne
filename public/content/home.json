@@ -1,6 +1,116 @@
 {
+  "contactBody": "Ring 070-574 70 13 eller maila janne.staffas@gmail.com.",
+  "ctaLabel": "KONTAKTA OSS",
+  "menusTitle": "Menyförslag",
+  "newsTitle": "Aktuellt",
   "eyebrow": "GRILLEVENT MED GLÖD",
+  "includeBody": "Vi kommer till dig med all utrustning och bästa råvarorna och grillar för dig och dina vänner, kolleger, kunder etc. Vår idé är simpel – grill på plats för alla tillfällen!",
+  "includeCtaLabel": "KONTAKTA OSS",
+  "newsLede": "Håll koll på Grill Janne! Här berättar vi när vi står på event och tillställningar. Följ oss på Facebook för att se fler bilder och uppdateringar.",
+  "featureCards": [
+    {
+      "hasLink": false,
+      "title": "Vi fixar allt",
+      "body": "När du bokar oss ingår allt som behövs för ett lyckat grilltillfälle. Vi tar med grillar, utrustning, råvaror och personal, samt ansvarar för transport och hantering på plats.",
+      "id": "fixar-allt"
+    },
+    {
+      "hasLink": true,
+      "title": "Flexibel meny",
+      "body": "Våra menyer kan utformas helt efter önskemål. Vi erbjuder kött, fisk, vegetariskt och glutenfritt, och ser till att alla gäster hittar något som passar. Tillsammans planerar vi ett menyupplägg som fungerar för just ert event.",
+      "id": "flexibel-meny"
+    },
+    {
+      "hasLink": false,
+      "title": "Personlig service",
+      "body": "Vi lyssnar på era önskemål och ser till att varje event blir unikt och minnesvärt. Det kan handla om att anpassa menyn, tiderna eller upplägget efter era behov.",
+      "id": "personlig-service"
+    },
+    {
+      "hasLink": false,
+      "title": "Exempel på event",
+      "body": "Vi levererar grillupplevelser till många olika sammanhang – allt från studenten, företagsevent och bröllop till privata grillkvällar. Oavsett storlek på tillställningen anpassar vi upplägget efter era behov.",
+      "id": "exempel-event"
+    },
+    {
+      "hasLink": false,
+      "title": "Hög kvalitet",
+      "body": "Vi använder alltid råvaror av hög kvalitet och grillar på plats för bästa smakupplevelse. Det innebär att vi väljer produkter som håller för höga temperaturer och som smakar bra även i större sammanhang.",
+      "id": "hog-kvalitet"
+    },
+    {
+      "hasLink": false,
+      "title": "All utrustning",
+      "body": "På erat event kan vi ta med all utrustning, så som tallrikar, glas, bestick osv. Vid planering får ni förmedla alla era önskemål så kommer vi fram till vad ni behöver tillsammans.",
+      "id": "all-utrustning"
+    }
+  ],
+  "includeTitle": "Vad ingår?",
+  "menus": [
+    {
+      "items": [
+        "Entrecôte",
+        "Fläskkarré/kotlett",
+        "Kycklinglårfilé",
+        "Två olika färska grillade korvar",
+        "Potatisgratäng eller en wok",
+        "Grillade grönsaker",
+        "Majskolv",
+        "Bearnaisesås"
+      ],
+      "title": "Meny 1 – Mixed grill",
+      "intro": "En populär grundmeny som passar de flesta tillställningar.",
+      "note": "Passar bra till privata tillställningar, företagsevent, studentfester och sommaravslutningar.",
+      "imageKey": "grid13"
+    },
+    {
+      "title": "Meny 2 – Mixed grill lyx",
+      "intro": "En mer exklusiv variant av Mixed Grill med lammracks.",
+      "items": [
+        "Lammracks",
+        "Entrecôte",
+        "Fläskkarré/kotlett",
+        "Kycklinglårfilé",
+        "Två olika färska grillade korvar",
+        "Potatisgratäng eller en wok",
+        "Grillade grönsaker",
+        "Majskolv",
+        "Bearnaisesås"
+      ],
+      "note": "Perfekt för företagsevent, AW eller temafester.",
+      "imageKey": "grid14"
+    },
+    {
+      "title": "Meny 3 – Hamburgermeny",
+      "intro": "En klassisk hamburgermeny med fokus på kvalitet och smak.",
+      "items": [
+        "200g hamburgare med: lök, sallad, ostx2, bacon, jalapeno, briochebröd.",
+        "Tillval: Pommes"
+      ],
+      "note": "Festivaler, konserter, större event eller personalfester där en enklare men mättande rätt önskas.",
+      "imageKey": "grid15"
+    },
+    {
+      "title": "Meny 4 – Wraps",
+      "intro": "Ett flexibelt och lättserverat alternativ med wraps i olika varianter.",
+      "items": [
+        "Pulled porkwrap: Isbergssallad, coleslaw, färsk gurka, barbecuesås och jalapeños samt picklad rödlök.",
+        "Varmrökt laxwrap: Isbergssallad, småpotatis med dijonsenapssås och gräslök, rädisor samt picklad rödlök.",
+        "Vegetariskt alternativ: Pulled Oumphwrap; Isbergssallad, coleslaw, färsk gurka, barbecuesås och jalapeños samt picklad rödlök."
+      ],
+      "note": "Konserter, festivaler, marknader, lunchgrill och andra utomhusevent där maten ska vara enkel att äta.",
+      "imageKey": "grid12"
+    }
+  ],
+  "upcomingEvents": [
+    "Ullevi, Luke Combs, lördag 4/7-26",
+    "Ullevi, Swedish House Maffia, fredag 28/8-26",
+    "Ullevi, Swedish House Maffia, lördag 29/8-26"
+  ],
+  "contactTitle": "Vill du diskutera ditt nästa grillevent?",
   "title": "VI GRILLAR PÅ DITT NÄSTA EVENT",
+  "menusIntro": "Vi kan tillsammans komma fram till en meny, eller så kan ni välja någon av menyerna nedan. Alla menyer har vegetariskt alternativ. Gluten- och laktosfria alternativ erbjuds alltid.",
   "lede": "Vill du ha gott grillat till ditt event eller fest? Vi erbjuder grillcatering till allt från företagsevenemang och privata tillställningar. Vi ansvarar för grillningen på plats, så att du kan ägna dig åt gästerna. Resultatet blir god grill – levererad dit du behöver den. Givetvis har vi också grillkurser. ",
-  "ctaLabel": "KONTAKTA OSS"
+  "newsFacebookLabel": "FÖLJ OSS PÅ FACEBOOK",
+  "upcomingTitle": "Kommande event"
 }
