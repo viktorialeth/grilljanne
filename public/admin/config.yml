@@ -9,12 +9,69 @@ collections:
   - label: "Startsida"
     name: "home"
     files:
-      - label: "Hero-sektion"
-        name: "hero"
-        file: "public/content/home.json"  # <-- filen vi ska skapa
-        format: "json"
+      - label: "Innehåll på startsidan"
+        name: "home"
+        file: "public/content/home.json"
         fields:
-          - { label: "Överrad", name: "eyebrow", widget: "string" }
-          - { label: "Titel", name: "title", widget: "string" }
-          - { label: "Ingress", name: "lede", widget: "text" }
-          - { label: "CTA-knapp text", name: "ctaLabel", widget: "string", default: "KONTAKTA OSS" }
+          # --- HERO ---
+          - { label: "Hero – överrad", name: "eyebrow", widget: "string" }
+          - { label: "Hero – titel", name: "title", widget: "string" }
+          - { label: "Hero – ingress", name: "lede", widget: "text" }
+          - { label: "Hero – CTA-knapp", name: "ctaLabel", widget: "string" }
+
+          # --- VAD INGÅR ---
+          - { label: "Vad ingår? – rubrik", name: "includeTitle", widget: "string" }
+          - { label: "Vad ingår? – text", name: "includeBody", widget: "text" }
+          - { label: "Vad ingår? – CTA-knapp", name: "includeCtaLabel", widget: "string" }
+
+          - label: "Vad ingår? – kort"
+            name: "featureCards"
+            widget: "list"
+            fields:
+              - { label: "Intern ID (ändra inte i onödan)", name: "id", widget: "string" }
+              - { label: "Titel", name: "title", widget: "string" }
+              - { label: "Text", name: "body", widget: "text" }
+              - { label: "Visa länk 'Se menyförslag'?", name: "hasLink", widget: "boolean", default: false }
+
+          # --- MENYFÖRSLAG ---
+          - { label: "Menyförslag – rubrik", name: "menusTitle", widget: "string" }
+          - { label: "Menyförslag – inledning", name: "menusIntro", widget: "text" }
+
+          - label: "Menyer"
+            name: "menus"
+            widget: "list"
+            fields:
+              - { label: "Titel", name: "title", widget: "string" }
+              - { label: "Ingress", name: "intro", widget: "text" }
+              - {
+                  label: "Bildnyckel (t.ex. grid13, grid14...)",
+                  name: "imageKey",
+                  widget: "string"
+                }
+              - label: "Rader i menyn"
+                name: "items"
+                widget: "list"
+                field:
+                  { label: "Rad", name: "item", widget: "string" }
+              - { label: "Not / beskrivning", name: "note", widget: "text" }
+
+          # --- AKTUELLT / KOMMANDE EVENT ---
+          - { label: "Aktuellt – rubrik", name: "newsTitle", widget: "string" }
+          - { label: "Aktuellt – ingress", name: "newsLede", widget: "text" }
+          - {
+              label: "Aktuellt – Facebook-knapp",
+              name: "newsFacebookLabel",
+              widget: "string",
+              default: "FÖLJ OSS PÅ FACEBOOK"
+            }
+          - { label: "Kommande event – rubrik", name: "upcomingTitle", widget: "string" }
+
+          - label: "Kommande event – lista"
+            name: "upcomingEvents"
+            widget: "list"
+            field:
+              { label: "Event", name: "event", widget: "string" }
+
+          # --- KONTAKT-CTA ---
+          - { label: "Kontakt-CTA – rubrik", name: "contactTitle", widget: "string" }
+          - { label: "Kontakt-CTA – text", name: "contactBody", widget: "text" }
