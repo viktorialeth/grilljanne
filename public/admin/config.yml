@@ -172,3 +172,25 @@ collections:
           - label: "CTA-knapp"
             name: "ctaLabel"
             widget: "string"
+  
+  # ==========================
+  #  BILDER / GALLERI
+  # ==========================
+  - label: "Bilder"
+    name: "bilder"
+    files:
+      - label: "Bildgalleri"
+        name: "gallery"
+        file: "public/content/gallery.json"
+        fields:
+          - label: "Bilder i galleriet"
+            name: "items"
+            widget: "list"
+            fields:
+              - label: "Bild"
+                name: "image"
+                widget: "image"
+              - label: "Alt-text"
+                name: "alt"
+                widget: "string"
+                required: false
